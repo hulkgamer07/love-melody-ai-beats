@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				love: {
+					50: '#fef7ff',
+					100: '#fdeeff',
+					200: '#f9ddff',
+					300: '#f3bfff',
+					400: '#eb91ff',
+					500: '#df5eff',
+					600: '#d336f7',
+					700: '#b721db',
+					800: '#971eb3',
+					900: '#7a1d92',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -69,26 +72,41 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
+				'love-pulse': {
+					'0%, 100%': { 
+						transform: 'scale(1)',
+						opacity: '0.8'
 					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
+					'50%': { 
+						transform: 'scale(1.05)',
+						opacity: '1'
 					}
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+				'float-hearts': {
+					'0%': { 
+						transform: 'translateY(0px) translateX(0px) rotate(0deg)',
+						opacity: '0'
 					},
-					to: {
-						height: '0'
+					'10%': { opacity: '1' },
+					'90%': { opacity: '1' },
+					'100%': { 
+						transform: 'translateY(-100px) translateX(20px) rotate(15deg)',
+						opacity: '0'
+					}
+				},
+				'gradient-shift': {
+					'0%, 100%': { 
+						background: 'linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #786fa6 100%)'
+					},
+					'50%': { 
+						background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff6b9d 100%)'
 					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'love-pulse': 'love-pulse 2s ease-in-out infinite',
+				'float-hearts': 'float-hearts 4s ease-in-out infinite',
+				'gradient-shift': 'gradient-shift 6s ease-in-out infinite',
 			}
 		}
 	},
